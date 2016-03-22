@@ -1,0 +1,42 @@
+Título: Programacion Dinamica
+Descripción de Tareas y Quices
+
+Debe programar los tres problemas de programacion dinamica vistos en clase
+
+ 
+
+1. Dado un vector de denominaciones de monedas D, D[0], D[1],,,D[n-1] y un monto a pagar M, 
+
+encuentre por programación dinámica todas las maneras distintas en que puede pagar el monto M 
+utilizando las denominaciones del vector. 
+
+
+Puede asumir que tanto M como todas las D[i] son múltiplos de D[0], 
+
+
+por ejemplo en nuestro caso de clase D = [5,10,25,50,100] y el monto a pagar era M = 125, 
+todos estos valores son múltiplos de 5=D[0].
+
+
+
+2. Dado una cuadricula de tamaño 3x(2n), Encuentre por programación dinámica todas las maneras posibles de acomodar un grupo de 3n Dominos es esa cuadrícula.
+
+Recuerde que las relaciones de recurrencia son
+
+A(2n) = A(2n-2)+2B(2n-1)
+
+B(2k+1) = A(2k)+2B(2k-1)
+
+Pero tenga el cuidado que (a) Esta relación va de 2 en 2 y (b) no se esta dando el caso base para ninguna de las dos ecuaciones, usted debe encontrarlo y programarlo.
+
+
+
+3. Dado un vector A de tamaño n, con entradas A[0], A[1], ..., A[n-1], encuentre el tamaño de la subsecuencia ascendente mas grande de A.
+
+Una subsecuencia ascendente es un conjunto de índices i1 menor que  i2 menor que  ... menor que ik (cada indice menor que el siguiente) tal que se cumple que A[i1] es menor igua a A[i2] a su vez menor o igual a A[i3] ... A[ik], el tamaño de esta secuencia es k.
+
+Para resolver este problema debe utilizar la tabla L[i,j], donde L[i,j] debe contener el tamaño de la subsecuencia ascendente de A a partir de A[j] que es mayor o igual a A[i].
+
+Un caso para este valor se da cuando A[j] < A[i], en este caso la subsecuencia mas larga a partir de A[j] que es mayor o igual que A[i] es igua a la subsecuencia mas larga a partir de A[j+1] que es mayor o igual que A[i], esto es L[i,j] será igual a L[i,j+1].
+
+El otro caso cuando A[i] es menor o igual a A[j] debe contemplar dos casos, las subsecuencias a partir de A[j] que incluyen a A[j] (lo puede incluir ya que sabe que es mayor que A[i]) o las subsecuencia mas larga a partir de A[j] que es mayor o igual a A[i] pero sin incluir A[j] (este es el mismo caso que cuando A[j] < A[i]).

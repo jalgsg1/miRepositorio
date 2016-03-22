@@ -1,0 +1,62 @@
+jalgsg2
+Tablas
+      
+r e g i s t r o
+       c
+       a
+       m
+       p
+       o
+
+Operaciones para procesar datos: 
+
+	Projection = extrae una columna
+	Division = extrae filas cuyos valores aparecen en la 
+	segunda tabla, pero no columnas que no existen en la seg. Tabla
+	Join = Une Todos los registros ->
+	Selection = Extrae filas
+
+SET operations: producen filas
+
+	Union = Extrae todo ambas tablas... filas(campos?)
+	Cartesian product = reg 1 con n registros de la tabla 2
+		         ...reg n con n registros de la tabla 2
+	Intersection = Lo comun en ambas tablas.
+	Difference = Igual que una resta de conjuntos
+
+Foreing key
+	Un codigo o llave de una tabla que lleva a
+	una llave primaria en otra tabla.
+
+Pag 50?
+	E-R Model
+
+Entidad: Reconocer un objeto en el mundo real.
+Relacion: Se da entre entidades.
+
+ Si solo vendo un tipo de fruta a mucha gente seria:
+ Ejemplo
+     frutas  1 ---< vende_en >--- N exportaciones
+
+Normalización: Hacer todas las tablas separadas por si uno debe
+corregir datos. Entonces es más fácil.
+
+  1) Forma normal 1
+	Dos tablas con un campo igual: Hay una relación en cada
+	tabla.
+	Datos repetidos en una tabla indican que se debe dividir
+	la tabla.
+
+  2) Forma 2
+	Cuando no todos los campos de la tabla se relacionan
+	directamente con la llave.
+
+  3) 
+  
+
+
+
+
+
+
+

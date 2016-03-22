@@ -1,0 +1,88 @@
+Tipos de datos comunes: int, decimal, money, datetime, varchar
+Para ejecutar lineas de codigo se deben seleccionar primero
+Dar click en ejecutar
+Click en actualizar(en explorador de objeto)
+
+Crear base de datos:
+
+   Create database miBase
+
+Para borrar 
+
+   Drop database miBase
+
+Usar base de datos:
+   
+   Use nombreDeBaseD   Funciona para que no use la base
+                       predeterminada del sistema.
+
+Para crear una tabla(las comas separan columnas):
+
+ create table miTabla
+ (
+   id_usuario int identity primary key,
+   nombre_usuario varchar(20),
+   password varchar(15),
+ )
+
+Ver la tabla:
+
+  Objeto Exp/Tables/dbo click derecho y click en design
+
+Insertar registros:
+
+	insert into miTabla values('oto javier','12345');
+	insert into miTabla values('Fabian Castro','53231');
+	insert into miTabla values('Juan Arce','66775');
+
+consultar registros:
+
+	SELECT * from miTabla
+
+Ejecutar una sentencia sin seleccionarla:
+
+	GO	La primera linea no lo necesita
+
+Propiedad Identity:  /*Da una serie numerica 
+			automaticamente de uno en uno*/
+
+	id int identity primary key   /*Con el primary key asegura que cada valor sea unico*/
+
+Personalizar el incremento de los id:
+
+        id int identity (11, 2, primary key), /*Inicia en 11, sube de 2 en 2*/
+
+Aceptar valores repetidos: quita la propiedad primary key
+	
+Insertar ids manualmente la linea cambia:
+	Insert into nombreTabla(atribs de tabla,..,..) values(..,..,..,..)
+	
+   Permitir insertar manualmente:
+	SET IDENTITY_INSERT nombreTabla ON
+	/* Asi podemos asignar ids y repetirlos con la flag ON*/
+	Insert into nombreTabla(id,...,..,..)
+
+Conectar computadoras remotamente y abrir puertos,
+el server principal sería la que tiene SQL server:
+
+   - En cmd escribir ipconfig: 
+	-IPv4 es la ip local 192.168.0.104
+	-La puerta o getway es la ip remota 192.168.0.1
+	
+	Escribir en el navegador: Cual es mi IP? para ver IP Publica
+	- 186.176.80.50
+ 
+   - Entrar en el router, buscar forwarding con un puerto como 5800 y el ip local 
+	y seleccionar ambos protocolos(TCP, UDP)
+
+   - Buscamos la aplicacion Configuration Manager:
+	Vamos a SQL server configuration, protocolos for MSSSQL,
+	click derecho en TCP/IP, propiedades, 
+
+	Cambiar IP 1, IP 10 e IPAII poniendo el ip-local y puerto correspondiente de la pc.
+	Hace falta luego tener compus de confianza y abrir puertos en el firewall.
+	    - Buscar en internet y seguir indicaciones con el o los puertos usados anteriormente
+
+	
+
+	
