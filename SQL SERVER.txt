@@ -83,6 +83,29 @@ el server principal sería la que tiene SQL server:
 	Hace falta luego tener compus de confianza y abrir puertos en el firewall.
 	    - Buscar en internet y seguir indicaciones con el o los puertos usados anteriormente
 
+
+Queda pendiente la conexion local remota con access: 7 Conexión Local y Remota desde Access Curso de SQL Server
+
+Crear un usuario no administrador:
+
+	En SQL click derecho en seguridad.
+	Hacer uduario 1 nuevo
+	Quitar check en directivas de contrase;as
 	
 
+	Asignacion de usuarios: Se selecciona la base
+	de datos y se selecciona abajo lo que es permitido
+	por ese usuario.
+
+
+	Elementos protegibles: se selecciona la base y
+	basta con checkear la opcion de conectar con SQL.
+
+	CLick derecho: reiniciar.
+	Click en opcion: Conectar objeto explorador.
+
+	Finalmente se inicia secion con el usuario y 
+	contrasena nueva.
+
+ 
 	
