@@ -107,5 +107,10 @@ Crear un usuario no administrador:
 	Finalmente se inicia secion con el usuario y 
 	contrasena nueva.
 
- 
+DELETE borra
+
+TRUNCATE borra y reinicia el conteo
+
+update tabla SET campo = Otracosa
+	here id = 5
 	

@@ -1,12 +1,12 @@
 jalgsg2
 Tablas
       
-r e g i s t r o
-       c
-       a
-       m
-       p
-       o
+CAMPO    CAMPO    CAMPO
+REGISTRO REGISTRO REGISTRO
+REGISTRO REGISTRO REGISTRO
+REGISTRO REGISTRO REGISTRO
+REGISTRO REGISTRO REGISTRO
+REGISTRO REGISTRO REGISTRO
 
 Operaciones para procesar datos: 
 
