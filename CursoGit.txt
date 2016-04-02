@@ -1,0 +1,233 @@
+﻿GIT
+
+
+Base de datos distribuida.
+
+	Siempre va a haber un repositorio en la nube.
+
+Git
+
+1991 … 2002 … 2005 → 
+
++ Rápido – distribuido – flexible.
+
+							Proceso 
+
+Working dir –> index(stage) → head
+
+Working dir: lo que vemos.
+Lo enviamos al stage.
+Cuando estamos seguros lo tiramos al head.
+
+AL usar add para añadir del dir al stage y cuando uno lo quiere enviar al server principal le doy commit.
+
+Instalar en Linux
+
+Ver documentación completa en: Git-scm.com
+
+Configurando git(1ra vez)
+
+git config -–global user.name “nombre Que sale en mis proximos commits”
+git config –-global user.email “miCorreo”
+git config –-global user.editor “sublime”
+
+Revisar
+git config user.name  → topo
+git config user.email → jalgsg2@gmail.com
+
+git config -–list → Tira todas las confiuraciones.
+git help config  → Ayuda de todas las posibles configuraciones.
+ 
+git <algun comando> --help Ejemplo: git <commit> --help
+
+Hacemos equipos Leader – Desarrollador_1 y  Desarrollador_2
+
+Dentro del header se meten metadatos
+
+Obtener un repositorio
+
+0) Meterse en la carpeta desde la consola
+1) inicializar git:    git init   //Cuando uno quiere iniciar con una carpeta propia que es util...
+2) Estado:			git status
+3) Añadir a stage:
+		git add nombre.extension 
+		git add -A (añadir todos)
+4) commit: git commit -m “mensaje”
+Con ctrl X o “q” se sale de ciertos menues.
+
+
+
+5) Git puede ignorar archivos con un archivo .gitignore:
+	# a ignored			
+	*.a # no .a files		ignorar los .a
+	!lib.a			negar un patron
+	/TODO build/    		documentos en build
+	doc/*.txt			ignorar todos los .txt
+
+Contenido de un Repositorio
+
+git clone <ruta>, <ruta> = https://github.com/schacon/git-ruby.git
+
+git commit -am “mensaje” → Hace add y luego commit con el mensaje de una
+
+git log → historial de commits
+
+
+https://github.com/schacon/simplegit-progit.git
+
+Al inicio si ya existe un repositorio, no se usa init, sino: 
+-	Entra en la carpeta y luego git clone “direccion http:// del repositorio”
+
+
+Git log
+
+git log -p → Ver historial de commits y diferencias en los archivos
+
+git log -5 → Para ver las últimas 5 confirmaciones
+
+git log –-stat → Estadisticas de cada confirmacion, ver el codigo por cada líena.
+
+git log –-pretty=<nombreFiltro>  → Acomodar para ver mas.
+
+	<nombreFiltro> puede ser: oneline, short, relative-date, Full, fuller, email, format.
+
+
+git log -–graph → Ver historial con lineas de colores que indican cambios. 
+
+Smartgit y gitk sirven como interfaz grafica para usar git
+
+git diff → Cambiado, pero no preparado. Con antes del add y el commit
+
+git diff -–cached → los que estan apunto de hacer commit, en el index.
+
+Eliminar archivos
+
+Dentro del repositorio: rm nombreArchivo
+Luego se hace git add nombreArchivoBorrado
+
+git rm –-cached → eliminar del index además del working directory
+
+git commit -m “[Delete] Trash file” → Se guardan cambios y se pone un comentario util
+
+git rm -f → Intentar borrar un archivo aunque tenga cambios locales.
+
+git rm log/*.extencion → Acepta expresiones regulares.
+git mv nombreArchivo nombrenuevo.nuevaExtencion →  Cambiar nombre de un archivo
+
+Cuando se cambia un archivo, renombra... Git no reconoce el archivo hasta que se le aplica add, entonces se da cuenta que solo fue renombrado.
+
+Tarea: Aprender a crear etiquetas, como macros para hacer cosas con mis propios comandos vagos.
+Escribiendo mensajes utiles de commit
+
+
+git commit --amend -am “mensaje”
+
+Deshacer en git(no hay recuperacion)
+
+	Deshacer modif en archivo no preparado(en stage)
+		git reset HEAD <nombreArchivo>	
+
+	Deshacer modif en archivo preparado
+
+		git checkout <nombreArchivo>
+
+
+master
+   |-----------|
+backend   	  frontend
+
+Al crear un commit en git, si algo cambia se crean referencias no se hacen copias de archivos.
+
+Una rama o branch: un puntero a una confirmacion. Es master por defecto.
+
+git branch develop → crea una rama llamada develop que va a tener una referencia a master.
+
+Git branch → ver lista de ramas
+
+HEAD →  branch que usa git para decirnos en que branch estamos.
+
+Git checkout nombreBranch → Se usa tambien para cambiar de rama, la que tenga el asterisco con git branch es en la que estamos.
+
+*develop
+master
+				
+		progra -o-o-o-o-o- prograCompleta
+		 /				\
+master -o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o- En producción, aparecen pocos cambios bien significativos.
+
+Clase 3
+
+git checkout -b “Nombre del branch”→ Creo una nueva rama y me cambio a esta nueva rama(-b).
+
+git merged → Primero checkout a la rama que elija y lurgo merge “nombre de la rama que va a mezclarse con la rama elejida”
+
+git branch -d “nombreDElBranch” → Borra a nivel del working directory.
+
+Git branch -v → Ver el ultimo cambio en la rama
+
+Git branch --merged → Muestra todas las ramas que fueron fusionadas.
+
+Git branch -–no-merged → Las que no han sido mezcladas. (Es importante ver Lo que no ha sido agregado al master)
+
+
+Ramas de largo recorrido
+jkhdfkajlsdf
+
+Ramas puntuales
+sdfhaslkfjhas
+
+Todo lo anterior es local, todas estas ramificaciones vistas anteriormente estan en mi repositorio local.
+
+
+Metodo Git+Flow(Metodo del más papo) Vincent Driessen
+gitPrime
+
+GitFlow maneja:
+
+Lo que este en master es lo que ya es funcional, nada puede ser inutil.
+En master(produccion) → Se sube la “version final” del cambio nuevo, sin bugs.
+
+- Supporting branches: 3
+	Son especiales semanticamente, muestra metodos y 
+ 
+	En algun momento se pueden eliminar o crear.
+	
+	+ Feature: Para nuevas funcionalidades.
+	Siempre va a salir de Develop, y se mezcla con develop siempre.
+	
+	+ Hotfix: 
+	Siempre sale de master y se mezcla a master.
+
+	+ Falta 1
+
+- Main branches: 2
+	Ramas de largo recorrido, nunca se deberian borrar.
+
+jfnalksdjfaslkjfb
+Master
+Develop
+
+
+Tarea: Investigar. Ver rasionamiento semantico. Ver el de firefox. Feature-0.0.53..
+Firefox usa subversion.
+
+
+Alojamiento externo o GitHosting:
+	-Deveo
+	-GitEnterprise
+	-GitLab: El preferido.
+	-Bitbucket
+	-GitEnterprise
+	-Github: Publico, o pague
+
+
+GitLab
+
+Milestone: Objetivos, metas. Estilo calendario.
+Isues: Para reporte de errores o mejoras.
+Snniped: Codigos pequeños que pueden ser reutilizados.
+
+Protect Branches: Elejir cierto usuario para darle permisos de modificar cierto branch.
+
+Tarea: GitLab vs Github: 
+	 Github para mi propio servidor
