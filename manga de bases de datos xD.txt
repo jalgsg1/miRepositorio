@@ -104,6 +104,10 @@ Se pueden dividir el diseño en tres partes:
 
 SQL se usa para meter y obtener datos de la base.
 
+- Creacion de tablas
+- Entrada y adquisicion de datos
+- Manejo de usuarios
+
 
 
 
