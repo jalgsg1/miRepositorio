@@ -109,7 +109,7 @@ SQL se usa para meter y obtener datos de la base.
 - Manejo de usuarios
 
 
-
+potato
 
 
 
