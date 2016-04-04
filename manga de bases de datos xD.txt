@@ -105,19 +105,57 @@ Se pueden dividir el diseño en tres partes:
 SQL se usa para meter y obtener datos de la base.
 
 - Creacion de tablas
-- Entrada y adquisicion de datos
+- Entrada y recuperacion de datos
 - Manejo de usuarios
 
 
-potato
+			Statements(declaraciones)
+
+Mostrar datos de las tablas.
+Ejemplo: para obtener el nombre del producto de la tabla que vale
+	 mas de 200 gold
+
+SELECT product_name
+FROM product
+WHERE unit_price >= 200
+
+tambien se puede extraer todo filtrado por nombre
+
+SELECT *
+FROM product
+WHERE product_name = 'apple'
+
+Si no se tiene claro el nombre se pueden seleccionar los que terminan en
+n usando: '%n'
+
+SELECT *
+FROM product
+WHERE product_name like '%n'; --En este caso puede tirar LIMON, MELON...
+
+ --Se puede agregar algo para ordenar ascendentemente por precio:
+
+ORDER BY unit_price;
+
+			Mas funciones(funciones de agregacion)
+
+SELECT	AVG(unit_price) --Obtener el promedio de la columna
+FROM product;
+
+SUM(column_name), AVG(column_name), MAX(column_name), MIN(column_name), 
+COUNT(*), count(column_name), count(DISTINCT column_name) 
 
 
+			Crear tabla		
 
+Create TABLE product
+(
+product_code int NOT NULL,
+product_name varchar(255),
+unit_price int,
+PRIMARY KEY(product_code)
+);
 
-
-		
-
-
+pag 106 pdf
 
 
 
