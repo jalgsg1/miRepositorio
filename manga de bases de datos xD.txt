@@ -41,18 +41,87 @@ Relacion: Se da entre entidades.
 Normalización: Hacer todas las tablas separadas por si uno debe
 corregir datos. Entonces es más fácil.
 
-  1) Forma normal 1
-	Dos tablas con un campo igual: Hay una relación en cada
-	tabla.
+  1) Forma normal 1.
 	Datos repetidos en una tabla indican que se debe dividir
 	la tabla.
 
   2) Forma 2
-	Cuando no todos los campos de la tabla se relacionan
-	directamente con la llave.
-
-  3) 
+	Una llave primaria determina los valores en otras columnas.
+	
+  3) Forma 3
+	Los campos de la tabla se relacionan directamente con 
+	la llave; si alguno no lo cumple, la tabla se divide.
   
+Foreing key = (Un campo de una tabla) Refers To (una llave primaria 
+		de otra tabla).
+
+			E-R MOdel
+
+Muestra las <relaciones> entre las [entidades](un objeto o algo del
+mundo real), la relacion de uno a muchos entre cada objeto puede
+tener cardinalidad.
+
+   (nombre)(Codigo)             (Export Destination Code) 
+    /     /                    /
+   [Fruit ]--M--<Sales>--N--[Export Destination]
+     /            /              /
+   (Precio)   (cantidad)         (Export Destination name)
+
+Un producto se vende en N exportaciones y una exportacion vende 
+M productos.
+
+Casos de cardinalidad:
+
+1) 	Una parte de la exportacion maneja un solo pedazo de 
+	historia de informacion.
+
+[EXPORT DESTINATION] --1-- <Management> --1-- [EXPORT HISTORY]
+
+
+2) Uno a N(muchos)
+	[REY] -- 1 -- <AYUDA> -- N -- [SIRVIENTES]
+
+3) MANY-TO-MANY RELATIONDHIP
+	[] --N-- <> --M-- []
+
+Pag 82
+
+			Pasos para diseñar una Base de Datos
+
+Se pueden dividir el diseño en tres partes:
+	Esquema conceptual:
+		Comprende la logica de lo que esta en el mundo con
+		el uso del modelo ER y la normalizacion de las tablas.
+
+	Esquema interno:
+		La base de datos vista desde adentro de la compu. 
+		Determina la estructura física de la base, se diseña
+		despues de crear los metodos de busqueda rapida.
+
+	Esquema externo:
+		La base vista desde el usuario o apps. Se diseña despues
+		de crear los datos requeridos por programas de aplicación.
+
+SQL se usa para meter y obtener datos de la base.
+
+
+
+
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
 
 
 
