@@ -155,7 +155,94 @@ unit_price int,
 PRIMARY KEY(product_code)
 );
 
-pag 106 pdf
+-- Meter una declaracion en la tabla de productos
+INSERT INTO product(product_code, product, nume, unit_price)
+values(101, 'melon', 800);
+
+Se puede usar DELETE y UPDATE
+
+Data Definition Language (DDL) Crear tablas
+Data Manipulation Language(DML) Entrada y racuperacion de datos.
+Data control Language(DCL) Administrar acceso del usuario
+
+		Crear condiciones
+
+Operadores de comparacion
+=, <, >, >=, <= y <> diferente
+
+Operadores logicos
+AND, OR, NOT
+
+			Patrones
+
+% Algun numero de caracteres
+	%n Lemon Melon
+	n% Navel Nut
+
+- Algun numero de caracteres
+	_t  -> it
+	t_  -> to
+
+Busqueda
+	SELECT * FROM PRODUCT
+		WHERE unit_price
+			BETWEEN 150 AND 200
+--Tambien se puede where unit_price is NULL
+
+Si quiero un pais de un nombre que contenga la letra n
+
+SELECT COUNT(*)
+	FROM product
+|		WHERE unit_price >= 200;
+?
+[COUNT(*) ]
+[2        ]
+			HAVING
+
+Filtra resultados después de ser agrupados
+
+SELECT district, AVG(unit_price)
+FROM product
+Group BY district;
+HAVING AVG(unit_price)>=200; 
+
+			JOINING Tables
+EQUI JOIN = Combina columnas del mismo nombre
+Natural JOIN = Columnas con el mismo nombre en una.
+INNER JOIN = Selecciona valores comunes en las filas.
+OUTER JOIN = Lo contrario al inner.
+LEFT OUTER JOIN 
+RIGHT OUTER JOIN = Depende, se deja las filas de la tabla B que 
+no estan en la A.
+
+Insert INTO product (adsd,asdasda,sdasd,sd) 
+VALUES(200, 'cherry', 200)
+
+UPDATE product
+SET product_name = 'papa'
+WHERE product_name = 'melon'		
+
+DELETE FROM product
+WHERE product_name = 'apple'
+
+				CONSTRAINTS
+
+Primary key = Dice quien es la llave.
+UNIQUE = Deberia ser unico.
+NOT NULL = Debe haber algo en el campo.
+Check = Checks a range.
+DEFAULT = valor predeterminado.
+FOREING KEY REFERENCES
+
+				CREATING A VIEW
+
+Se puede crear una tabla virtual, que existe solo a la vista de un usuario.
+EJ:
+
+CREATE VIEW expensive_product(product_code, product_name, unit price)
+	AS SELECT * 
+	FROM product
+		WHERE unit_price >= 200;
 
 
 
