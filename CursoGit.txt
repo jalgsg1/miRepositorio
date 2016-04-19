@@ -40,12 +40,16 @@ git help config  → Ayuda de todas las posibles configuraciones.
  
 git <algun comando> --help Ejemplo: git <commit> --help
 
+|-Create a new repository
+| git clone https://gitlab.com/jalgsg2/membresiaClubesNatacion_Proy1_Bases1.git
+| cd membresiaClubesNatacion_Proy1_Bases1
+| git push -u origin master
+
 Hacemos equipos Leader – Desarrollador_1 y  Desarrollador_2
 
 Dentro del header se meten metadatos
 
 Obtener un repositorio
-
 0) Meterse en la carpeta desde la consola
 1) inicializar git:    git init   //Cuando uno quiere iniciar con una carpeta propia que es util...
 2) Estado:			git status
@@ -54,8 +58,6 @@ Obtener un repositorio
 		git add -A (añadir todos)
 4) commit: git commit -m “mensaje”
 Con ctrl X o “q” se sale de ciertos menues.
-
-
 
 5) Git puede ignorar archivos con un archivo .gitignore:
 	# a ignored			

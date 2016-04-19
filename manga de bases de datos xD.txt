@@ -190,13 +190,18 @@ Busqueda
 --Tambien se puede where unit_price is NULL
 
 Si quiero un pais de un nombre que contenga la letra n
+SELECT * 
+	FROM export_destination
+		where export_destination_name like '%n%'
 
-SELECT COUNT(*)
-	FROM product
-|		WHERE unit_price >= 200;
-?
+Ejemplo:
+	SELECT COUNT(*)
+		FROM product
+			WHERE unit_price >= 200;
+Resultado
 [COUNT(*) ]
 [2        ]
+
 			HAVING
 
 Filtra resultados después de ser agrupados
@@ -239,14 +244,27 @@ FOREING KEY REFERENCES
 Se puede crear una tabla virtual, que existe solo a la vista de un usuario.
 EJ:
 
-CREATE VIEW expensive_product(product_code, product_name, unit price)
-	AS SELECT * 
+CREATE VIEW expensive_product
+	SELECT product_code, product_name, unit price
 	FROM product
 		WHERE unit_price >= 200;
 
+DROP VIEW expensive_product
+DROP Table product
 
+Create view NorthSeaCountry(exportDestCode, ExportDestName, Population)
+	AS SELECT exportDestCode, ExportDestName, Population
+	FROM EXPORT_DESTINATION
+		WHERE District = "North Sea";
 
+UPDATE EXPORT_DESTINATION
+	SET population = 150
+		where ExportDestName = "Kingdom of Tonkanta"
 
+DELETE FROM EXPORT_DESTINATION
+	where ExportDestName = "Kingdom of Paronu"
+
+p -127
 
 
 

@@ -114,3 +114,50 @@ TRUNCATE borra y reinicia el conteo
 update tabla SET campo = Otracosa
 	here id = 5
 	
+		Crear base de datos con sintaxis avanzada
+
+/*Esta primera parte es la especificacion de almacenamiento.
+Name: nombre que va a quedar en el disco duro, 
+a FILENAME se le pasa el lugar donde se va a almacenar la base
+SIZE: Tamano inicial de la base, viene en MB por defecto.
+FILEGROWTH: Va aumentando en MB mientras se llena la base de
+datos, puede ponerse un porcentaje tambien: FILEGROWTH = 5%. 
+*/
+CREATE DATABASE Ventas
+ON PRIMARY
+(NAME = 'Ventas',  --Nombre Logico del archivo
+FILENAME = 'c:\VentasLog.mdf', -- Dir donde se va a almacenar la base
+SIZE = 10, 
+MAXSIZE = 50,    --Tamano maximo
+FILEGROWTH = 5) 
+
+/* Mantiene la integridad, solo las transacciones confirmadas
+   van a ir de el ldf al mdf, ambos estan en el mismo lugar.*/
+LOG ON
+(NAME = 'VentasLog',
+FILENAME = 'C:\VentasLog.ldf',
+SIZE = 5,
+MAXSIZE = 25,
+FILEGROWTH = 5);
+
+/*Cuando la base se llena, se convierte en solo lectura. Se
+  puede cambiar este limite despues usando ALTER DATABASE
+*/
+
+ALTER DATABASE Ventas
+MODIFY FILE
+(NAME = Ventas, 
+MAXSIZE = 100MB)
+
+
+
+
+
+  
+
+
+
+
+
+
+
