@@ -1,0 +1,23 @@
+BEGIN
+	Generar poblacion inicial
+	Crear la funcion fitness para cada individuo
+
+	while(muchas veces)
+		Begin
+			For(tamaño de la poblacion)
+			BEGIN
+				SELECCIONAR dos individuos de la anterior generacion
+				para aplicar cruce (probabilidad de seleccion proporcional a la funcion fitness)
+
+				CRUZAR con cierta probabilidad dos individuos
+
+				Mutar (con cierta probabilidad) los dos descendientes.
+
+				Computar, aplicar fitness a los descendientes.
+
+				INSERTAR, los descendientes mutados a la nueva generacion.
+			END
+			IF (La poblacion ha convergido)
+				Termina = True
+		END
+END
